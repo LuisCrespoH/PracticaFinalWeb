@@ -1,0 +1,73 @@
+POST http://localhost:3001/api/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+"email": "testlogo@gmail.com",
+"password": "testcontra"
+}
+
+###
+POST http://localhost:3001/api/auth/validation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U1ODZmNjUxNmRkNzRlODJjYzAwMmQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMDk1NTQyLCJleHAiOjE3NDMxMDI3NDJ9.fWjUVDTcsR8CdtsPPS7xf1YX_Mgk7Y--AxsbgdEmGKM
+Content-Type: application/json
+
+{
+    "code": "686718"
+}
+
+###
+POST http://localhost:3001/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+"email": "teemitolover@gmail.com",
+"password": "losratownes"
+}
+###
+PUT http://localhost:3001/api/auth/register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U1ODZmNjUxNmRkNzRlODJjYzAwMmQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMDk1NTQyLCJleHAiOjE3NDMxMDI3NDJ9.fWjUVDTcsR8CdtsPPS7xf1YX_Mgk7Y--AxsbgdEmGKM
+Content-Type: application/json
+
+{
+  "name": "Sara",
+  "surnames": "Garcia Medina",
+  "nif": "12345678S"
+}
+
+###
+PATCH http://localhost:3001/api/auth/company
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U2NzJkZWE5ZjVmYmEwYTM4ZDk1NTQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMTU1OTM0LCJleHAiOjE3NDMxNjMxMzR9.1S0DBCAjKLkqoeM7Kp3x88gIctEEugiYl6yN1rA2Nvg
+Content-Type: application/json
+
+{
+  "company": {
+    "name": "cresher L.C.",
+    "cif": "11112023L",
+    "street": "calle",
+    "number": 3,
+    "postal": 11112,
+    "city": "La madre",
+    "province": "Tenerife"
+  }
+}
+
+###
+POST http://localhost:3001/api/auth/logo HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U2NzJkZWE5ZjVmYmEwYTM4ZDk1NTQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMTU1OTM0LCJleHAiOjE3NDMxNjMxMzR9.1S0DBCAjKLkqoeM7Kp3x88gIctEEugiYl6yN1rA2Nvg
+Content-Type: multipart/form-data; boundary=boundary123
+
+--boundary123
+Content-Disposition: form-data; name="image"; filename="logo.jpg"
+Content-Type: image/jpeg
+
+< ./logo.jpg
+--boundary123--
+
+###
+GET http://localhost:3001/api/auth/profile 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U2NzJkZWE5ZjVmYmEwYTM4ZDk1NTQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMTU1OTM0LCJleHAiOjE3NDMxNjMxMzR9.1S0DBCAjKLkqoeM7Kp3x88gIctEEugiYl6yN1rA2Nvg
+
+
+###
+DELETE http://localhost:3001/api/auth/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U1YjA4ZTU5ODQ3NjE4MWFlNDI4MzMiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMTA2MTkwLCJleHAiOjE3NDMxMTMzOTB9.o8gzg7FW34XI6WT6qn4uLLac-ssCKR7GRotaGKqhgVo
