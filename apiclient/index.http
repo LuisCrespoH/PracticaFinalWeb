@@ -2,17 +2,17 @@ POST http://localhost:3001/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-"email": "testproject@gmail.com",
+"email": "luiscrespoherrera@gmail.com",
 "password": "testcontra"
 }
 
 ###
 POST http://localhost:3001/api/auth/validation
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U1ODZmNjUxNmRkNzRlODJjYzAwMmQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMDk1NTQyLCJleHAiOjE3NDMxMDI3NDJ9.fWjUVDTcsR8CdtsPPS7xf1YX_Mgk7Y--AxsbgdEmGKM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhNmRhMGE2Mzk0MDFmYTQ0NzkzY2UiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTYyNDY0LCJleHAiOjE3NDY2NDg4NjR9.stbkYjJxRqivY7eInC0VlCYflciiGWmcP8C9Pczy8QM
 Content-Type: application/json
 
 {
-    "code": "686718"
+    "code": "606699"
 }
 
 ###
@@ -20,8 +20,8 @@ POST http://localhost:3001/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-"email": "teemitolover@gmail.com",
-"password": "losratownes"
+"email": "luiscrespoherrera@gmail.com",
+"password": "testcontra"
 }
 ###
 PUT http://localhost:3001/api/auth/register

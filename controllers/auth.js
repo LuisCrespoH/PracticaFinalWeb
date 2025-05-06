@@ -5,7 +5,7 @@ const { handleHttpError } = require("../utils/handleError");
 const { generateCode } = require("../utils/handleCode");
 const uploadToPinata = require('../utils/handleUploadIPFS.js')
 const usersModel = require("../models/users");
-
+const { sendEmail } = require('../utils/handleEmail')
 /**
  * Encargado de registrar un nuevo usuario
  * @param {*} req 
@@ -39,7 +39,15 @@ const registerCtrl = async (req, res) => {
                 status: dataUser.status
             }
         };
+        const emailOptions = {
+            from: process.env.EMAIL,
+            to: dataUser.email,
+            subject: "Código de verificación",
+            text: `Tu código de verificación es: ${code}`,
+            html: `<p>Tu código de verificación es: <strong>${code}</strong></p>`,
+        };
 
+        await sendEmail(emailOptions);
         res.send(responseData);
     } catch (err) {
         console.log(err);
@@ -258,6 +266,15 @@ const uploadImage = async (req, res) => {
         res.status(500).send("ERROR_UPLOAD_COMPANY_IMAGE");
     }
 };
+const send = async (req, res) => {
+    try {
+    const info = matchedData(req)
+    const data = await sendEmail(info)
+    res.send(data)
+    } catch (err) {
+    //console.log(err)
+    handleHttpError(res, 'ERROR_SEND_EMAIL')
+    }
+};
 
-
-module.exports = { registerCtrl, loginCtrl, verifyCodeCtrl, updatePersonalDataCtrl, updateCompanyCtrl, getUserProfile, deleteUser, uploadImage };
+module.exports = { registerCtrl, loginCtrl, verifyCodeCtrl, updatePersonalDataCtrl, updateCompanyCtrl, getUserProfile, deleteUser, uploadImage, send };
