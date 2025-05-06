@@ -89,3 +89,20 @@ Content-Type: application/json
     "province": "Madrid"
   }
 }
+
+###
+PUT http://localhost:3001/api/client/019809180421
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+Content-Type: application/json
+
+{
+  "name": "ACS Actualizado",
+  "cif": "D52921210",
+  "address": {
+    "street": "Carlos V",
+    "number": 30,
+    "postal": 28936,
+    "city": "Móstoles",
+    "province": "Madrid"
+  }
+}
