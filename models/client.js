@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const mongooseDelete = require('mongoose-delete');
+
 const Schema = mongoose.Schema;
 
 const clienteSchema = new Schema({
@@ -36,6 +38,12 @@ const clienteSchema = new Schema({
 }, {
   timestamps: true,
   versionKey: false
+});
+
+// 🔹 Plugin para soft delete con timestamp
+clienteSchema.plugin(mongooseDelete, {
+  deletedAt: true,        // Marca la fecha de borrado
+  overrideMethods: 'all'  // Para que find(), findOne(), etc. ignoren los eliminados
 });
 
 module.exports = mongoose.model('Cliente', clienteSchema);

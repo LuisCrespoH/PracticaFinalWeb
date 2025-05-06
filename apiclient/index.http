@@ -79,7 +79,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M
 Content-Type: application/json
 
 {
-  "name": "otro cliente",
+  "name": "cleiten archivado 2",
   "cif": "D52921210",
   "address": {
     "street": "Carlos V",
@@ -114,3 +114,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M
 ###
 GET http://localhost:3001/api/client/6819e5533464e12a69025c83
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+
+###
+DELETE http://localhost:3001/api/client/soft/6819ecb0726b289e6f469aee
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+
+###
+DELETE http://localhost:3001/api/client/6819e5533464e12a69025c83
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+
+###
+GET http://localhost:3001/api/client/archived
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+
+###
+PATCH http://localhost:3001/api/client/restore/6819e12fd0ef673ae149ff29
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+

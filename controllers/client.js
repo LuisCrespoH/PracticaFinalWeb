@@ -137,5 +137,88 @@ const obtenerClientePorId = async (req, res) => {
       res.status(500).json({ msg: 'Error al obtener el cliente' });
     }
 };
+const archivarCliente = async (req, res) => {
+    try {
+      const clienteId = req.params.id;
+      const usuarioId = req.user.id;
+  
+      const cliente = await Cliente.findById(clienteId);
+      if (!cliente) {
+        return res.status(404).json({ msg: 'Cliente no encontrado' });
+      }
+  
+      if (cliente.usuario.toString() !== usuarioId) {
+        return res.status(403).json({ msg: 'No tienes permiso para archivar este cliente' });
+      }
+  
+      await cliente.delete(); // esto es soft delete con mongoose-delete
+  
+      res.status(200).json({ msg: 'Cliente archivado correctamente (soft delete)' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error al archivar el cliente' });
+    }
+};
+const eliminarCliente = async (req, res) => {
+    try {
+      const clienteId = req.params.id;
+      const usuarioId = req.user.id;
+  
+      // Incluir también los clientes archivados
+      const cliente = await Cliente.findOneWithDeleted({ _id: clienteId });
+  
+      if (!cliente) {
+        return res.status(404).json({ msg: 'Cliente no encontrado' });
+      }
+  
+      if (cliente.usuario.toString() !== usuarioId) {
+        return res.status(403).json({ msg: 'No tienes permiso para eliminar este cliente' });
+      }
+  
+      // Hard delete usando deleteOne directamente
+      await Cliente.deleteOne({ _id: clienteId });
+  
+      res.status(200).json({ msg: 'Cliente eliminado permanentemente' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error al eliminar el cliente' });
+    }
+};
+const listarClientesArchivados = async (req, res) => {
+    try {
+      const usuarioId = req.user.id;
+  
+      // Obtener clientes archivados (soft deleted) usando findDeleted()
+      const clientesArchivados = await Cliente.findDeleted({ usuario: usuarioId });
+  
+      res.status(200).json(clientesArchivados);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error al obtener los clientes archivados' });
+    }
+  };
+const restaurarCliente = async (req, res) => {
+    try {
+      const clienteId = req.params.id;
+      const usuarioId = req.user.id;
+  
+      const cliente = await Cliente.findOneWithDeleted({ _id: clienteId });
+  
+      if (!cliente) {
+        return res.status(404).json({ msg: 'Cliente no encontrado' });
+      }
+  
+      if (cliente.usuario.toString() !== usuarioId) {
+        return res.status(403).json({ msg: 'No tienes permiso para restaurar este cliente' });
+      }
+  
+      await cliente.restore();
+  
+      res.status(200).json({ msg: 'Cliente restaurado correctamente' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error al restaurar el cliente' });
+    }
+};
 
-module.exports = {crearCliente, actualizarCliente, obtenerClientes, obtenerClientePorId};
+module.exports = {crearCliente, actualizarCliente, obtenerClientes, obtenerClientePorId, archivarCliente, eliminarCliente, restaurarCliente, listarClientesArchivados};
