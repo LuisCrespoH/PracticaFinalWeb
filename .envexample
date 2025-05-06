@@ -1,0 +1,22 @@
+PORT=3001
+
+DB_URI=<link a la base de datos de mongo>
+
+DB_URI_TEST=<link a otra base de datos de mongo dedicada especificamente a los tests>
+
+PUBLIC_URL= http://localhost:3000
+
+PINATA_GATEWAY_URL= <PINATA_GATEWAY_URL>
+
+PINATA_KEY=<PINATA_KEY>
+
+PINATA_SECRET=<PINATA_SECRET>
+
+JWT_SECRET=<MasterKey>
+
+SLACK_WEBHOOK=<link para conectar con el canal de Slack>
+
+EMAIL=<correo desde el cual se mandaran las validaciones>
+REFRESH_TOKEN=<Token de actualizacion de Google OAuth 2.0>
+CLIENT_SECRET=<CLIENT_SECRET>
+CLIENT_ID=<CLIENT_ID>
