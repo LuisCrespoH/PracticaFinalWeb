@@ -109,7 +109,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3001/api/client
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZTU4MWUxYTQyNWM3Njc2MjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3Njc4LCJleHAiOjE3NDY2MjQwNzh9.TswPhzwb5jmn80CtlKobg-VXBiS2ucZcIsLyOyhaUPI
 
 ###
 GET http://localhost:3001/api/client/6819e5533464e12a69025c83
@@ -192,4 +192,23 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZ
 
 ###
 PATCH http://localhost:3001/api/project/restore/681a0ce8581e1a425c767627
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZTU4MWUxYTQyNWM3Njc2MjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3Njc4LCJleHAiOjE3NDY2MjQwNzh9.TswPhzwb5jmn80CtlKobg-VXBiS2ucZcIsLyOyhaUPI
+
+
+###
+POST http://localhost:3001/api/deliverynote
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZTU4MWUxYTQyNWM3Njc2MjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3Njc4LCJleHAiOjE3NDY2MjQwNzh9.TswPhzwb5jmn80CtlKobg-VXBiS2ucZcIsLyOyhaUPI
+Content-Type: application/json
+
+{
+  "clientId": "681a0fdf04ecc869dbd912e4",
+  "projectId": "681a102104ecc869dbd912e9",
+  "format": "material",
+  "material": "Hormigón armado",
+  "description": "Material utilizado en cimentación",
+  "workdate": "2024-06-02"
+}
+
+###
+GET http://localhost:3001/api/deliverynote
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZTU4MWUxYTQyNWM3Njc2MjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3Njc4LCJleHAiOjE3NDY2MjQwNzh9.TswPhzwb5jmn80CtlKobg-VXBiS2ucZcIsLyOyhaUPI
