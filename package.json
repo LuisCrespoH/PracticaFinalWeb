@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "NODE_ENV=test jest --verbose"
+    "test": "cross-env NODE_ENV=test jest --verbose"
   },
   "keywords": [],
   "author": "",
@@ -14,12 +14,12 @@
     "@slack/webhook": "^7.0.5",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
     "googleapis": "^148.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.14.1",
     "mongoose-delete": "^1.0.2",
     "morgan-body": "^2.6.9",
     "multer": "^1.4.5-lts.2",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "mongoose": "^8.14.1",
     "supertest": "^7.1.0"
   }
 }
