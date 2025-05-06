@@ -1,5 +1,5 @@
 const express = require("express")
-const { registerCtrl, loginCtrl, verifyCodeCtrl, updatePersonalDataCtrl, updateCompanyCtrl, getUserProfile, deleteUser, uploadImage } = require("../controllers/auth")
+const { registerCtrl, loginCtrl, verifyCodeCtrl, updatePersonalDataCtrl, updateCompanyCtrl, getUserProfile, deleteUser, uploadImage, changePasswordCtrl } = require("../controllers/auth")
 const { validatorRegister, validatorLogin, validatorCode, validatorPersonalData, validatorCompany } = require("../validators/auth")
 const authMiddleware = require("../middleware/session");
 const {uploadMiddlewareMemory} = require("../utils/handleStorage")
@@ -13,6 +13,8 @@ router.post("/register", validatorRegister, registerCtrl)
 router.post("/login", validatorLogin, loginCtrl) 
 
 router.post("/validation", authMiddleware, validatorCode, verifyCodeCtrl);
+
+router.patch("/password", authMiddleware, changePasswordCtrl);
 
 router.put("/register", authMiddleware, validatorPersonalData, updatePersonalDataCtrl);
 

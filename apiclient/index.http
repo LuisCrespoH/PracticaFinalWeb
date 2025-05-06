@@ -2,7 +2,7 @@ POST http://localhost:3001/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-"email": "correo@gmail.com",
+"email": "correocontra@gmail.com",
 "password": "testcontra"
 }
 
@@ -13,6 +13,16 @@ Content-Type: application/json
 
 {
     "code": "606699"
+}
+
+###
+PATCH http://localhost:3001/api/auth/password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhNzQyY2U4NGVjMmE3YWQyY2FjMjkiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTY0MTQxLCJleHAiOjE3NDY2NTA1NDF9.nzwJYXHYbdRN0t_fGjKwBfktrcuD7BUu47YkjrSkK9U
+Content-Type: application/json
+
+{
+    "currentPassword": "testcontra",
+    "newPassword": "miNuevaContraseña456"
 }
 
 ###

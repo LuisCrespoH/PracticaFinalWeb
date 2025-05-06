@@ -137,6 +137,35 @@ const verifyCodeCtrl = async (req, res) => {
         handleHttpError(res, "ERROR_VERIFY_CODE");
     }
 };
+// Cambiar la contraseña del usuario autenticado
+const changePasswordCtrl = async (req, res) => {
+    console.log(req.body);
+    try {
+        const user = req.user;  // El usuario autenticado
+        console.log('User password:', user.password);
+
+        const { currentPassword, newPassword } = matchedData(req);  // Recibimos las contraseñas
+
+        // Verificamos si la contraseña actual es correcta
+        const isPasswordCorrect = await compare(currentPassword, user.password);
+        if (!isPasswordCorrect) {
+            return handleHttpError(res, "INVALID_PASSWORD", 401);
+        }
+
+        // Si la contraseña es correcta, ciframos la nueva contraseña
+        const hashedNewPassword = await encrypt(newPassword);
+
+        // Actualizamos la contraseña en la base de datos
+        user.password = hashedNewPassword;
+        await user.save();
+
+        res.json({ message: "Contraseña cambiada correctamente" });
+    } catch (err) {
+        console.error(err);
+        handleHttpError(res, "ERROR_CHANGE_PASSWORD");
+    }
+};
+
 /**
  * Actualiza los datos personales del usuario autenticado
  * @param {*} req 
@@ -277,4 +306,4 @@ const send = async (req, res) => {
     }
 };
 
-module.exports = { registerCtrl, loginCtrl, verifyCodeCtrl, updatePersonalDataCtrl, updateCompanyCtrl, getUserProfile, deleteUser, uploadImage, send };
+module.exports = { registerCtrl, loginCtrl, verifyCodeCtrl, updatePersonalDataCtrl, updateCompanyCtrl, getUserProfile, deleteUser, uploadImage, send, changePasswordCtrl };
