@@ -73,5 +73,69 @@ const actualizarCliente = async (req, res) => {
       res.status(500).json({ msg: 'Error al actualizar el cliente' });
     }
 };
+const obtenerClientes = async (req, res) => {
+    try {
+      const usuarioId = req.user.id;
+      const usuario = await User.findById(usuarioId);
+  
+      if (!usuario) {
+        return res.status(404).json({ msg: 'Usuario no encontrado' });
+      }
+  
+      // Buscar clientes creados por este usuario o por otros usuarios de su compañía
+      let clientes;
+  
+      if (usuario.company && usuario.company.cif) {
+        // Buscar todos los usuarios con mismo cif de compañía
+        const usuariosMismaCompania = await User.find({ 'company.cif': usuario.company.cif }, '_id');
+        const idsUsuarios = usuariosMismaCompania.map(u => u._id);
+  
+        clientes = await Cliente.find({ usuario: { $in: idsUsuarios } });
+      } else {
+        clientes = await Cliente.find({ usuario: usuarioId });
+      }
+  
+      res.status(200).json(clientes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error al obtener los clientes' });
+    }
+};
+const obtenerClientePorId = async (req, res) => {
+    try {
+      const usuarioId = req.user.id;
+      const clienteId = req.params.id;
+  
+      const usuario = await User.findById(usuarioId);
+      if (!usuario) {
+        return res.status(404).json({ msg: 'Usuario no encontrado' });
+      }
+  
+      const cliente = await Cliente.findById(clienteId);
+      if (!cliente) {
+        return res.status(404).json({ msg: 'Cliente no encontrado' });
+      }
+  
+      // Verificamos si el cliente pertenece al usuario o a la misma compañía
+      if (
+        cliente.usuario.toString() !== usuarioId &&
+        (!usuario.company || !usuario.company.cif)
+      ) {
+        return res.status(403).json({ msg: 'No tienes acceso a este cliente' });
+      }
+  
+      if (cliente.usuario.toString() !== usuarioId && usuario.company?.cif) {
+        const usuarioCliente = await User.findById(cliente.usuario);
+        if (!usuarioCliente || usuarioCliente.company?.cif !== usuario.company.cif) {
+          return res.status(403).json({ msg: 'No tienes acceso a este cliente' });
+        }
+      }
+  
+      res.status(200).json(cliente);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: 'Error al obtener el cliente' });
+    }
+};
 
-module.exports = {crearCliente, actualizarCliente};
+module.exports = {crearCliente, actualizarCliente, obtenerClientes, obtenerClientePorId};

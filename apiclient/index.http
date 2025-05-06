@@ -79,7 +79,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M
 Content-Type: application/json
 
 {
-  "name": "ACS",
+  "name": "otro cliente",
   "cif": "D52921210",
   "address": {
     "street": "Carlos V",
@@ -91,7 +91,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3001/api/client/019809180421
+PUT http://localhost:3001/api/client/6819e12fd0ef673ae149ff29
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
 Content-Type: application/json
 
@@ -106,3 +106,11 @@ Content-Type: application/json
     "province": "Madrid"
   }
 }
+
+###
+GET http://localhost:3001/api/client
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+
+###
+GET http://localhost:3001/api/client/6819e5533464e12a69025c83
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
