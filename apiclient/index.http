@@ -2,7 +2,7 @@ POST http://localhost:3001/api/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-"email": "testlogo@gmail.com",
+"email": "testcliente@gmail.com",
 "password": "testcontra"
 }
 
@@ -71,3 +71,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U2NzJkZ
 ###
 DELETE http://localhost:3001/api/auth/delete
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2U1YjA4ZTU5ODQ3NjE4MWFlNDI4MzMiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQzMTA2MTkwLCJleHAiOjE3NDMxMTMzOTB9.o8gzg7FW34XI6WT6qn4uLLac-ssCKR7GRotaGKqhgVo
+
+
+###
+POST http://localhost:3001/api/client
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE5ZTA3M2QwZWY2NzNhZTE0OWZmMjQiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTI2MzIzLCJleHAiOjE3NDY1MzM1MjN9.iSTqEqJcCKyi_Z_STuFbYUYA8CtxzupXEsME5Q4v4V4
+Content-Type: application/json
+
+{
+  "name": "ACS",
+  "cif": "D52921210",
+  "address": {
+    "street": "Carlos V",
+    "number": 22,
+    "postal": 28936,
+    "city": "Móstoles",
+    "province": "Madrid"
+  }
+}
