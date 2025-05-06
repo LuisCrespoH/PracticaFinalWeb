@@ -212,3 +212,7 @@ Content-Type: application/json
 ###
 GET http://localhost:3001/api/deliverynote
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZTU4MWUxYTQyNWM3Njc2MjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3Njc4LCJleHAiOjE3NDY2MjQwNzh9.TswPhzwb5jmn80CtlKobg-VXBiS2ucZcIsLyOyhaUPI
+
+###
+GET http://localhost:3001/api/deliverynote/681a2451a0f8f666bff4927d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODFhMGNjZTU4MWUxYTQyNWM3Njc2MjIiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQ2NTM3Njc4LCJleHAiOjE3NDY2MjQwNzh9.TswPhzwb5jmn80CtlKobg-VXBiS2ucZcIsLyOyhaUPI

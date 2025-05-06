@@ -46,4 +46,23 @@ const listaAlbaranes = async (req, res) => {
       res.status(500).json({ message: "Error al obtener los albaranes" });
     }
 };
-module.exports = {crearAlbaran, listaAlbaranes};
+const mostrarAlbaran = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      const albaran = await DeliveryNote.findById(id)
+        .populate("userId", "name email") // puedes ajustar los campos
+        .populate("clientId", "nombre cif")
+        .populate("projectId", "name projectCode");
+  
+      if (!albaran) {
+        return res.status(404).json({ msg: "Albarán no encontrado" });
+      }
+  
+      res.status(200).json(albaran);
+    } catch (error) {
+      console.error("Error al mostrar el albarán:", error);
+      res.status(500).json({ msg: "Error al mostrar el albarán" });
+    }
+};
+module.exports = {crearAlbaran, listaAlbaranes, mostrarAlbaran};
